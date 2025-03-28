@@ -8,7 +8,7 @@ Apache NiFi получает данные по API каждые 15 минут, �
 
  - Apache NiFi 
  - Apache Kafka 
- - ClickHouse ( или PostgreSQL) 
+ - ClickHouse (или PostgreSQL) 
  - Grafana (или Metabase) 
  - Docker 
  - Conduktor (UI для Kafka)
@@ -30,7 +30,7 @@ Apache NiFi получает данные по API каждые 15 минут, �
 
 За визуализацию витрины данных отвечает Grafana (или Metabase) - кому что больше нравится.
 
-Шаблоны NiFi для импорта готового pipeline находятся в папке backups. Там же находятся драйверы для подключения к clickhouse / postgres.
+**Шаблоны NiFi для импорта готового pipeline находятся в папке backups.** Там же находятся драйверы для подключения к clickhouse / postgres.
 
 По поводу подключению nifi к clickhouse. 
 - Database Connection URL: jdbc:clickhouse://clickhouse:8123/default?compress=1&compress_algorithm=gzip
