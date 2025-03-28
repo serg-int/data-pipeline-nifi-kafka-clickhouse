@@ -1,0 +1,35 @@
+import org.apache.nifi.processor.io.StreamCallback
+import groovy.json.JsonSlurper
+import groovy.json.JsonOutput
+import java.nio.charset.StandardCharsets
+
+def flowFile = session.get()
+if(!flowFile) return
+
+flowFile = session.write(flowFile, { inputStream, outputStream ->
+    // Чтение JSON
+    def json = new JsonSlurper().parse(inputStream)
+
+    // Округление longitude до 2 знаков
+    // json.longitude = Math.round(json.longitude * 100) / 100.0
+
+    // Проверка условий по latitude и longitude
+    if(json.latitude == 52.52) {
+       json.city = "Berlin"
+    } else if(json.latitude == 48.84) {
+       json.city = "Paris"
+    } else if(json.latitude == 51.5) {
+       json.city = "London"
+    } else if(json.latitude == 55.75) {
+       json.city = "Moscow"
+    } else if(json.latitude == 40.710335) {
+       json.city = "New York"
+    } else {
+       json.city = "UNKNOWN"
+    }
+    
+	// Запись обратно JSON в поток
+    outputStream.write(JsonOutput.toJson(json).getBytes(StandardCharsets.UTF_8))
+} as StreamCallback)
+
+session.transfer(flowFile, REL_SUCCESS)

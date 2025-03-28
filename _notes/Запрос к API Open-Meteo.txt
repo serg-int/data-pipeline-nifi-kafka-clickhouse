@@ -1,0 +1,1 @@
+https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=sunrise,sunset,daylight_duration&current=is_day,temperature_2m,apparent_temperature,wind_speed_10m,wind_direction_10m,precipitation&timezone=auto&forecast_days=1&wind_speed_unit=ms

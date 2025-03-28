@@ -1,0 +1,13 @@
+{
+  "event_timestamp": "${timestamp}",
+  "city": "${city_api}",
+  "temperature": ${temperature},
+  "apparent_temperature": ${apparent_temperature},
+  "wind_speed": ${wind_speed},
+  "wind_direction": ${wind_direction},
+  "precipitation": ${precipitation},
+  "sunrise": "${sunrise}",
+  "sunset": "${sunset}",
+  "daylight_duration": ${daylight_duration},
+  "is_day": ${is_day}
+}
